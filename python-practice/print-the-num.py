@@ -1,28 +1,24 @@
 #\21天学通Python\
-def printnum(num):
-    a = num
-    if a < 0 | a > 10 :
-        print ('invilid input!')
-    elif a == 1 :
-        print('   *','   *','   *','   *','   *',sep = '\n')
-    elif a == 2 :
-        print('****','   *','****','*   ','****',sep = '\n')
-    elif a == 3 :
-        print('****','   *','****','   *','****',sep = '\n')
-    elif a == 4 :
-        print('  **',' * *','****','   *','   *',sep = '\n')
-    elif a == 5 :
-        print('****','*   ','****','   *','****',sep = '\n')
-    elif a == 6 :
-        print('****','*   ','****','*  *','****',sep = '\n')
-    elif a == 7 :
-        print('****','   *','   *','   *','   *',sep = '\n')
-    elif a == 8 :
-        print('****','*  *','****','*  *','****',sep = '\n')
-    elif a == 9 :
-        print('****','*  *','****','   *','****',sep = '\n')
-    elif a == 0 :
-        print('****','*  *','*  *','*  *','****',sep = '\n')
+one = ('   *','   *','   *','   *','   *')
+two = ('****','   *','****','*   ','****')
+thr = ('****','   *','****','   *','****')
+fou = ('  **',' * *','****','   *','   *')
+fiv = ('****','*   ','****','   *','****')
+six = ('****','*   ','****','*  *','****')
+sev = ('****','   *','   *','   *','   *')
+eig = ('****','*  *','****','*  *','****')
+nin = ('****','*  *','****','   *','****')
+zer = ('****','*  *','*  *','*  *','****')
+number = (zer,one,two,thr,fou,fiv,six,sev,eig,nin)
+def printnum(num = [0,0]):
+    #将数字拼合输出 两个数字中间存在一列空格
+    for i in range(10) :
+        if num[0] == i :
+            c1 = number[i]
+        if num[1] == i :
+            c10 = number[i]
+    numlist = [c10[0]+' '+c1[0],c10[1]+' '+c1[1],c10[2]+' '+c1[2],c10[3]+' '+c1[3],c10[4]+' '+c1[4]]
+    return numlist
 def splitnum(num):
     a = num
     if a >10000 :
@@ -33,12 +29,16 @@ def splitnum(num):
         a3 = (a-a%100)%1000/100
         a4 = (a-a%1000)%10000/1000
         a5 = (a-a%10000)%100000/10000
-    return a1,int(a2),int(a3),int(a4),int(a5)
+    A = [a1,a2,a3,a4,a5]
+    return A
+def gettime(time) :
+
 
 b = 1
 while(b):
     x = input('Please input an int num : ')
     x = int(x)
-    print (splitnum(x))
+    numsingle = (splitnum(x))
+    printnum(numsingle)
     b = input('want to continue? y(1)/n(0)')
     b = int(b)
