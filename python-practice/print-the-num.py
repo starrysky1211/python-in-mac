@@ -1,14 +1,16 @@
 #\21天学通Python\
-one = ('   *','   *','   *','   *','   *')
-two = ('****','   *','****','*   ','****')
-thr = ('****','   *','****','   *','****')
-fou = ('  **',' * *','****','   *','   *')
-fiv = ('****','*   ','****','   *','****')
-six = ('****','*   ','****','*  *','****')
-sev = ('****','   *','   *','   *','   *')
-eig = ('****','*  *','****','*  *','****')
-nin = ('****','*  *','****','   *','****')
-zer = ('****','*  *','*  *','*  *','****')
+import time
+
+one = ('   |','   |','   |','   |','   |')
+two = ('||||','   |','||||','|   ','||||')
+thr = ('||||','   |','||||','   |','||||')
+fou = ('  ||',' | |','||||','   |','   |')
+fiv = ('||||','|   ','||||','   |','||||')
+six = ('||||','|   ','||||','|  |','||||')
+sev = ('||||','   |','   |','   |','   |')
+eig = ('||||','|  |','||||','|  |','||||')
+nin = ('||||','|  |','||||','   |','||||')
+zer = ('||||','|  |','|  |','|  |','||||')
 number = (zer,one,two,thr,fou,fiv,six,sev,eig,nin)
 def printnum(num = [0,0]):
     #将数字拼合输出 两个数字中间存在一列空格
@@ -21,24 +23,21 @@ def printnum(num = [0,0]):
     return numlist
 def splitnum(num):
     a = num
-    if a >10000 :
+    if a >100 :
         print ('invilid num')
     else:
         a1 = a%10
         a2 = (a-a%10)%100/10
-        a3 = (a-a%100)%1000/100
-        a4 = (a-a%1000)%10000/1000
-        a5 = (a-a%10000)%100000/10000
-    A = [a1,a2,a3,a4,a5]
+    A = [a1,a2]
     return A
-def gettime(time) :
+def gettime() :
+    t = time.localtime(time.time())
+    nt = [t.tm_hour,t.tm_min,t.tm_sec]
+    return nt
+while(1):
+    nt = gettime()
+    ntpr = [printnum(splitnum(nt[0])),printnum(splitnum(nt[1])),printnum(splitnum(nt[2]))]
+    timelist = [ntpr[0][0]+'    '+ntpr[1][0]+'    '+ntpr[2][0],ntpr[0][1]+' -- '+ntpr[1][1]+' -- '+ntpr[2][1],ntpr[0][2]+'    '+ntpr[1][2]+'    '+ntpr[2][2],ntpr[0][3]+' -- '+ntpr[1][3]+' -- '+ntpr[2][3],ntpr[0][4]+'    '+ntpr[1][4]+'    '+ntpr[2][4]]
 
-
-b = 1
-while(b):
-    x = input('Please input an int num : ')
-    x = int(x)
-    numsingle = (splitnum(x))
-    printnum(numsingle)
-    b = input('want to continue? y(1)/n(0)')
-    b = int(b)
+    print ('\n',timelist[0],timelist[1],timelist[2],timelist[3],timelist[4],sep = '\n')
+    time.sleep(1)
