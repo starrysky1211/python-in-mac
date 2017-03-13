@@ -1,8 +1,6 @@
 # coding: utf-8
 from ftplib import FTP
-import time
-import tarfile
-import os
+
 
 # !/usr/local/bin/python
 # -*- coding: utf-8 -*-
