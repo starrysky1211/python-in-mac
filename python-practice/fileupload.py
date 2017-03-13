@@ -13,17 +13,19 @@ def ftp_connect(host, username, password):
     return ftp
 
 
-def ftp_upload(ftp, remotepath, localpath):
+def ftp_upload(ftp, remote_path, local_path):
     bufsize = 1024
-    fp = open(localpath, 'wb')
-    ftp.retrbinary('RETR'+remotepath, fp.write, bufsize)
+    fp = open(local_path, 'wb')
+    ftp.retrbinary('RETR' + remote_path, fp.write, bufsize)
     ftp.set_debuglevel(0)
     fp.close()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     ftp = ftp_connect("101.6.58.142", "grad", "1003-2")
-    ftp_upload(ftp, "C:/Users/starrysky/Desktop/ip_now.txt", "\\101.6.58.142\grad\柳铮")
+    ftp_upload(
+        ftp,
+        "C:/Users/starrysky/Desktop/ip_now.txt",
+        "\\101.6.58.142\grad\柳铮")
 
     ftp.quit()
-
