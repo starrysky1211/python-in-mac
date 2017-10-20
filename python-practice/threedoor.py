@@ -1,5 +1,6 @@
 import random
 
+
 total = int(input('input total times for this test: '))
 bingo = 0
 for i in range(total):
